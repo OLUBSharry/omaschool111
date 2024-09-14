@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오마중학교 일정표</title>
+    <meta name="description" content="학교 시간표와 주요 일정을 쉽게 확인하세요.">
+    <!-- Font Awesome 아이콘 라이브러리 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* 스타일 정의 (CSS) */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f1e5bd; /* 연한 노랑색 배경 */
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0056B3; /* 헤더 배경색 - 파란색 */
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+        nav ul li {
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        nav ul li a:hover {
+            background-color: #023163; /* 링크 hover 효과 */
+        }
+        main {
+            padding: 2rem;
+        }
+        section {
+            display: none; /* 모든 섹션을 처음에 숨김 */
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid #0056B3;
+            border-radius: 5px;
+            background-color: #fff;
+            transition: opacity 0.3s ease-in-out; /* 부드러운 전환 효과 추가 */
+        }
+        #home, #schedule { /* 홈과 시간표 섹션만 기본적으로 표시 */
+            display: block;
+            opacity: 1; /* 기본적으로 보이게 설정 */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            vertical-align: middle; /* 셀 내용의 수직 정렬을 중앙으로 설정 */
+        }
+        th {
+            background-color: #0056B3;
+            color: white;
+        }
+        footer {
+            background-color: #0056B3;
+            color: #fff;
+            text-align: center;
+            padding: 0.5rem; /* padding을 줄여서 두께를 줄임 */
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 0.8rem; /* 폰트 크기를 줄여서 푸터 두께를 줄임 */
+        }
+        .content-end {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #666;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 섹션 -->
+    <header>
+        <h1>오마중학교 1학년 11반 일정표</h1>
+        <nav>
+            <ul>
+                <li><a onclick="showSection('home')"><i class="fas fa-home"></i> 홈</a></li>
+                <li><a onclick="showSection('schedule')"><i class="fas fa-calendar"></i> 시간표</a></li>
+                <li><a onclick="showSection('exams')"><i class="fas fa-clipboard-list"></i> 시험일자</a></li>
+                <li><a onclick="showSection('events')"><i class="fas fa-flag"></i> 행사</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 메인 콘텐츠 섹션 -->
+    <main>
+        <!-- 홈 섹션 -->
+        <section id="home">
+            <h2>홈</h2>
+            <p>환영합니다! 학교 시간표와 주요 일정을 확인하세요.</p>
+        </section>
+
+        <!-- 시간표 섹션 -->
+        <section id="schedule">
+            <h2>시간표</h2>
+            <p>학교의 일주일 간 시간표를 확인하세요.</p>
+            <!-- 시간표 내용을 추가 -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>교시/시간</th>
+                        <th>월요일</th>
+                        <th>화요일</th>
+                        <th>수요일</th>
+                        <th>목요일</th>
+                        <th>금요일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 각 교시와 요일별 과목 -->
+                    <tr>
+                        <td>1교시<br>09:15 - 10:00</td>
+                        <td>수학</td>
+                        <td>체육</td>
+                        <td>기가</td>
+                        <td>국어</td>
+                        <td>체육</td>
+                    </tr>
+                    <tr>
+                        <td>2교시<br>10:10 - 10:55</td>
+                        <td>스포</td>
+                        <td>수학</td>
+                        <td>한문</td>
+                        <td>음악</td>
+                        <td>도덕</td>
+                    </tr>
+                    <tr>
+                        <td>3교시<br>11:05 - 11:50</td>
+                        <td>정보</td>
+                        <td>미술</td>
+                        <td>영어</td>
+                        <td>기가</td>
+                        <td>과학</td>
+                    </tr>
+                    <tr>
+                        <td>4교시<br>12:00 - 12:45</td>
+                        <td>영어</td>
+                        <td>미술</td>
+                        <td>체육</td>
+                        <td>한문</td>
+                        <td>수학</td>
+                    </tr>
+                    <tr>
+                        <td>5교시<br>13:35 - 14:20</td>
+                        <td>국어</td>
+                        <td>체육</td>
+                        <td>미술</td>
+                        <td>체육</td>
+                        <td>체육</td>
+                    </tr>
+                    <tr>
+                        <td>6교시<br>14:30 - 15:15</td>
+                        <td>진로</td>
+                        <td>국어</td>
+                        <td>창체</td>
+                        <td>수학</td>
+                        <td>기가</td>
+                    </tr>
+                    <tr>
+                        <td>7교시<br>15:25 - 16:10</td>
+                        <td></td>
+                        <td>음악</td>
+                        <td></td>
+                        <td>영어</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="content-end">시간표는 변경될 수 있으니 정기적으로 확인하세요.</p>
+        </section>
+
+        <!-- 시험일자 섹션 -->
+        <section id="exams">
+            <h2>시험일자</h2>
+            <p>📝2~3학년 1차 지필펼가(중간고사): 9월 30일</p>
+            <p>📝 2차 지필평가(기말고사): 11월 말 또는 12월 초</p>
+        </section>
+
+        <!-- 행사 섹션 -->
+        <section id="events">
+            <h2>행사</h2>
+            <p>🎉 운동회: 10월 25일</p>
+            <p>🏤 현장직업체험: 11월 19일</p>
+        </section>
+    </main>
+
+    <!-- 푸터 섹션 -->
+    <footer>
+        <p>&copy; 2024 오마중학교 일정표</p>
+        <p class="maade-by">Made by 11106 김민찬</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // 모든 섹션 숨기기
+            document.querySelectorAll('section').forEach(section => section.style.display = 'none');
+            // 선택된 섹션 표시
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
